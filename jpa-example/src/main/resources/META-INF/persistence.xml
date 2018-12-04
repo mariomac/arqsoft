@@ -1,0 +1,41 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <persistence-unit name="jpa-example" transaction-type="RESOURCE_LOCAL">
+        <!-- Setting up Hibernate as the JPA implementation -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Java classes that we will store as database entities -->
+        <class>edu.upc.swarch.jpa.entities.Author</class>
+        <class>edu.upc.swarch.jpa.entities.Film</class>
+
+        <properties>
+            <!-- Configuring the client to connect to an embedded H2 -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/my-database"/>
+            <!-- Default configuration for development: user 'sa' and empty password -->
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <!-- SQL drivers and SQL dialect (Hibernate will use it for compose SQL queries) -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+
+            <!-- Commenting the previous lines and uncommenting the following lines would allow you
+                 using MySQL
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/jpa_example"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="my_root_password"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+            -->
+
+            <!-- Set to "true" to log all the SQL queries that JPA will automatically create
+                 for you -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+        </properties>
+    </persistence-unit>
+</persistence>
