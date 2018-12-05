@@ -13,10 +13,12 @@
 
         <properties>
             <!-- Configuring the client to connect to an embedded H2 -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/my-database"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/jpa-example"/>
+
             <!-- Default configuration for development: user 'sa' and empty password -->
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value=""/>
+
             <!-- SQL drivers and SQL dialect (Hibernate will use it for compose SQL queries) -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
@@ -32,10 +34,12 @@
 
             <!-- Set to "true" to log all the SQL queries that JPA will automatically create
                  for you -->
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
 
-            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <!-- For testing purposes, the database is destroyed and created every time we run
+                 the code -->
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
         </properties>
     </persistence-unit>
 </persistence>

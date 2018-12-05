@@ -1,8 +1,6 @@
 package edu.upc.swarch.jpa;
 
-import edu.upc.swarch.jpa.entities.Author;
 import edu.upc.swarch.jpa.entities.Film;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,15 +16,12 @@ public class FilmsDAO {
         entityManagerFactory = Persistence.createEntityManagerFactory("jpa-example");
     }
 
-    public void store(Film f) {
+    // Stores a JPA object and commits the transaction
+    public void store(Object f) {
         EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
         em.persist(f);
-        em.close();
-    }
-
-    public void store(Author a) {
-        EntityManager em = entityManagerFactory.createEntityManager();
-        em.persist(a);
+        em.getTransaction().commit();
         em.close();
     }
 
@@ -45,9 +40,9 @@ public class FilmsDAO {
         try {
             // We could use SQL, JPQL makes our life easier
             TypedQuery<Film> query = em.createQuery(
-                    "SELECT f FROM Film f WHERE f.year >= :yfrom AND f.year <= :yto", Film.class);
-            query.setParameter("yfrom", from);
-            query.setParameter("yto", to);
+                    "SELECT f FROM Film f WHERE f.year >= :year_from AND f.year <= :year_to", Film.class);
+            query.setParameter("year_from", from);
+            query.setParameter("year_to", to);
             return query.getResultList();
         } finally {
             em.close();
