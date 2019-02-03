@@ -1,18 +1,18 @@
-package edu.upc.swarch.lesson01;
+package edu.upc.swarch.lesson01.part1;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CalculatorImpl implements Calculator {
-    private List<Float> stack = new ArrayList<>();
+    private List<Double> stack = new ArrayList<>();
 
     @Override
-    public void push(Float n) {
+    public void push(Double n) {
         stack.add(n);
     }
 
     @Override
-    public Float pop() throws StackSizeException {
+    public Double pop() throws StackSizeException {
         if (stack.isEmpty()) {
             throw new StackSizeException("stack is empty");
         }
@@ -36,7 +36,7 @@ public class CalculatorImpl implements Calculator {
     }
 
     @Override
-    public Float[] getStack() {
-        return stack.toArray(new Float[0]);
+    public Double[] getStack() {
+        return stack.toArray(new Double[0]);
     }
 }
