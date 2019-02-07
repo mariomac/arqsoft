@@ -7,12 +7,12 @@ public class CalculatorImpl implements Calculator {
     private List<Double> stack = new ArrayList<>();
 
     @Override
-    public void push(Double n) {
+    public void push(double n) {
         stack.add(n);
     }
 
     @Override
-    public Double pop() throws StackSizeException {
+    public double pop() throws StackSizeException {
         if (stack.isEmpty()) {
             throw new StackSizeException("stack is empty");
         }
@@ -33,10 +33,5 @@ public class CalculatorImpl implements Calculator {
             throw new StackSizeException("need at least two operators in the stack");
         }
         push(pop() * pop());
-    }
-
-    @Override
-    public Double[] getStack() {
-        return stack.toArray(new Double[0]);
     }
 }
