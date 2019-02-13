@@ -1,0 +1,35 @@
+// Gradle file. This file descrives our project.
+// For a complete use, run: ./gradlew clean test jacocoTestReport
+plugins {
+    // Apply the java-library plugin to add support for Java Library
+    id 'java'
+    // Apply the JaCoCo plugin to measure code coverage
+    id 'jacoco'
+}
+
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+dependencies {
+    // Use JUnit test framework
+    testCompile 'junit:junit:4.12'
+}
+
+// Configuration of the Code Coverage plugin
+jacocoTestReport {
+    group = "Reporting"
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.enabled true
+    }
+}
+
+test {
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}
