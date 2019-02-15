@@ -1,10 +1,15 @@
-// Gradle file. This file descrives our project.
+// Gradle file. This file describes our project.
 // For a complete use, run: ./gradlew clean test jacocoTestReport
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java'
-    // Apply the JaCoCo plugin to measure code coverage
-    id 'jacoco'
+
+    // The application plugin allows executing classes with a main method
+    id 'application'
+}
+
+application {
+    mainClassName = "edu.upc.swarch.cats.CatFactsMain"
 }
 
 repositories {
@@ -14,17 +19,6 @@ repositories {
 }
 
 dependencies {
+    // This library allows us easily converting JSON text into Java Objects
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
-    // Use JUnit test framework
-    testCompile 'junit:junit:4.12'
-}
-
-// Configuration of the Code Coverage plugin
-jacocoTestReport {
-    group = "Reporting"
-    reports {
-        xml.enabled false
-        csv.enabled false
-        html.enabled true
-    }
 }

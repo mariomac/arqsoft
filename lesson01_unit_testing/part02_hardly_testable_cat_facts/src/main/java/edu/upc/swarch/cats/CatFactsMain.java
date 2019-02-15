@@ -1,11 +1,9 @@
 package edu.upc.swarch.cats;
 
-
-public class CatFactsApp {
+public class CatFactsMain {
     public static void main(String[] args) throws Exception {
-        HardlyTestableCatFacts facts = new HardlyTestableCatFacts();
+        CatFacts facts = new CatFacts();
 
         System.out.println(facts.randomFact());
-
     }
 }

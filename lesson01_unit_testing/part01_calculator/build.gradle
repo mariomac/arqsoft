@@ -1,4 +1,4 @@
-// Gradle file. This file descrives our project.
+// Gradle file. This file describes our project.
 // For a complete use, run: ./gradlew clean test jacocoTestReport
 plugins {
     // Apply the java-library plugin to add support for Java Library
