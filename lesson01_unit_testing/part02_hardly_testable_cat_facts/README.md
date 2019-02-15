@@ -10,3 +10,5 @@ To execute it from command line:
 
 * Linux/Mac: `./gradlew run`
 * Windows: `gradlew.bat run`
+
+You can test them the same way you did with the [Calculator example](../part01_calculator).
