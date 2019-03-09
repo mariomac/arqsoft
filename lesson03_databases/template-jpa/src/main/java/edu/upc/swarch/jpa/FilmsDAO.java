@@ -28,7 +28,7 @@ public class FilmsDAO {
     public List<Film> findAll() {
         EntityManager em = entityManagerFactory.createEntityManager();
         try {
-            // We could use SQL, JPQL makes our life easier
+            // We could use SQL, but JPQL makes our life easier
             return em.createQuery("SELECT f FROM Film f ORDER BY year ASC", Film.class).getResultList();
         } finally {
             em.close();
@@ -38,7 +38,7 @@ public class FilmsDAO {
     public List<Film> findByYearRange(int from, int to) {
         EntityManager em = entityManagerFactory.createEntityManager();
         try {
-            // We could use SQL, JPQL makes our life easier
+            // We could use SQL, but JPQL makes our life easier
             TypedQuery<Film> query = em.createQuery(
                     "SELECT f FROM Film f WHERE f.year >= :year_from AND f.year <= :year_to", Film.class);
             query.setParameter("year_from", from);

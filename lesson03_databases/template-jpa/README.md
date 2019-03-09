@@ -1,4 +1,7 @@
-# Example: Java Persistence API (JPA)
+# Template for a Java Persistence API (JPA) project
+
+This example project uses the [Java Persistence Api](https://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html)
+as an intermediate layer between your application and the database.
 
 JPA is an Object-Relational Mapping (ORM) tool: it allows you working with relational databases (e.g.
 MySQL, PostgreSQL, Oracle, etc...) directly with Java classes, helping you from creating a lot of
@@ -33,4 +36,3 @@ In Windows. Open a CMD and run:
 gradlew.bat run
 ```
 
-## De
