@@ -1,0 +1,27 @@
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building an application
+    id 'application'
+}
+
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+dependencies {
+    // This dependency will allow use the H2 database as an embedded database, but also its
+    // JDBC driver
+    // If you plan to use other database, you will need to change this line
+    compile group: 'com.h2database', name: 'h2', version: '1.4.198'
+    runtime group: 'com.h2database', name: 'h2', version: '1.4.198'
+
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+}
+
+// Define the main class for the application
+mainClassName = 'upc.arqsoft.dbs.App'
