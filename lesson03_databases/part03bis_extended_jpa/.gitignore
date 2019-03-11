@@ -1,0 +1,5 @@
+.idea
+.nb-gradle
+build
+out
+.gradle

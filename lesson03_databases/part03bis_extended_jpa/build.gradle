@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin:'application'
+mainClassName = "edu.upc.swarch.jpa.Main"
+
+sourceCompatibility = '1.8'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+if (!hasProperty('mainClass')) {
+    ext.mainClass = ''
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Java Persistence API (JPA) and its implementation (Hibernate)
+    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.2.Final'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.3.7.Final'
+    
+    // H2 Database. An SQL database written in java, used for development.
+    compile group: 'com.h2database', name: 'h2', version: '1.4.197'
+    
+    testCompile group: 'junit', name: 'junit', version: '4.10'
+}
+
